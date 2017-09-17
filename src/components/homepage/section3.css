@@ -1,0 +1,31 @@
+.section3{
+  /*background-image: url('../../images/section2.png');
+  background-size: cover;
+  height: 100vh;*/
+  background-color: #1a1a1a;
+  width: 100%;
+}
+.collapsible-body{
+  background: #e0e0e0 !important;
+}
+@media screen and (min-width : 500px){
+  .faqsection{
+    padding-right: 60px;
+    margin-top: 70px;
+  }
+  .ruleheader{
+    color: #eeeeee;
+    margin-top: 0;
+    padding-top: 50px;
+  }
+
+}
+.waves-effect input[type="button"], .waves-effect input[type="reset"], .waves-effect input[type="submit"] {
+  font-size: 18px !important;
+}
+.dotsimage{
+  width: 100%;
+}
+ul{
+  margin-bottom: 0px!important ;
+}

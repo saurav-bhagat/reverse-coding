@@ -1,0 +1,95 @@
+#round1{
+  background-color: #1a1a1a;
+  width: 100%;
+  color: white;
+}
+#questionmaindiv{
+  color: #424242;
+}
+.exnja{
+  text-transform: lowercase !important;
+}
+.disabled{
+  cursor: not-allowed !important;
+  color: #ef9a9a!important;
+}
+
+@media screen and (min-width: 500px){
+  #questionmaindiv {
+    width: 800px;
+    height: 400px;
+    overflow-y: scroll;
+    overflow-x:hidden;
+    background-color: white;
+    box-shadow: 7px 7px 5px #111111;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .quescontainer{
+    margin-left: 30px;
+  }
+
+  .questionfiles{
+    margin-top: 15px;
+  }
+  .uploaddiv{
+    position: relative;
+    top: 20px;
+  }
+  #uploadbtn{
+    background-color: #0D47A1!important;
+    color: #fff;
+    text-align: center;
+    letter-spacing: .5px;
+    transition: .2s ease-out;
+    font-size: 1rem;
+    outline: 0;
+    border: none;
+    border-radius: 2px;
+    display: inline-block;
+    padding: 8px;
+    vertical-align: middle;
+    position: relative;
+    top: 22px;
+  }
+  .downloadbtn{
+    width: 164px;
+  }
+  .round1head{
+    padding-left: 67px;
+  }
+}
+
+@media screen and (max-width: 600px){
+  #questionmaindiv {
+    /*width: 800px;*/
+    height: 400px;
+    overflow-y: scroll;
+    overflow-x:hidden;
+    background-color: white;
+    box-shadow: 7px 7px 5px #111111;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+@media only screen and (min-width: 768px) {
+  .downloadbtn{
+    width: 175.5px;
+    background-color: #0D47A1!important;
+  }
+}
+
+.playbtn, .pausebtn{
+  background-color: #0D47A1;
+
+}
+
+.playbtn:visited ,.pausebtn:hover{
+  background-color: #0D47A1
+}
+
+.playbtn:hover , .pausebtn:hover{
+  background-color: #0D47A1
+}

@@ -1,0 +1,101 @@
+.section1{
+  background-color: #1a1a1a;
+  width: 100%;
+}
+.downbtn{
+  background-color: #0D47A1;
+  position: absolute;
+  bottom: 40px;
+  right: 50px;
+}
+.line1{
+  width: 300px;
+  position: absolute;
+  left: 0;
+  top: 200px;
+
+}
+.line2{
+  width: 200px;
+  position: absolute;
+  bottom: -20px;
+  left: 10px;
+  z-index: 1;
+
+}
+.downbtn:hover{
+  background-color: #0D47A1;
+}
+.downbtn:visited{
+  background-color: #0D47A1;
+}
+
+@media screen and (min-width: 480px) {
+  #mainlogo{
+    width: 150px;
+  }
+
+}
+@media screen and (max-width: 480px) {
+  #mainlogo{
+    width: 100px;
+  }
+
+
+}
+@media screen and (min-width: 480px) {
+  #imgandtextdiv{
+    color: white;
+  }
+  #headtext{
+    font-weight: bolder;
+    font-size: 42px;
+    vertical-align: text-top;
+    margin-top: 30px;
+    display: inline-block;
+  }
+  #mainlogo{
+    width: 150px;
+    vertical-align: middle;
+  }
+  .cardsty{
+    padding: 15px;
+    width: 420px !important;
+    margin: auto;
+    border-radius: 4px;
+  }
+  #afterlogin{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .midText{
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+  }
+}
+#coding{
+  background-color: #0D47A1;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+span {
+  transition: all 1s linear;
+  transform-style: preserve-3d;
+}
+.mirror{
+  display: inline-block;
+  transform: rotateY(180deg);
+}
+
+
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .7s ease-in;
+}

@@ -1,0 +1,11 @@
+baseurl :
+
+upload  : params :{
+  question no: que
+  round : round
+  token : token
+  file : file
+}
+upload url : baseurl/question/upload
+
+login   : 

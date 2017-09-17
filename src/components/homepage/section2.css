@@ -1,0 +1,110 @@
+.section2{
+  /*background-image: url('../../images/section2.png');
+  background-size: cover;
+  height: 100vh;*/
+  background-color: #1a1a1a;
+  width: 100%;
+}
+
+.card .card-content{
+  padding: 12px;
+}
+
+@media screen and (min-width: 480px){
+  #footer{
+    bottom: 450px;
+  }
+  #footerrc{
+    width: 150px;
+  }
+  #acmlogo{
+    width: 200px;
+    padding-top: 30px;
+
+  }
+  #gravita{
+    width: 200px;
+    padding-top: 50px;
+
+  }
+  .orgcard{
+    margin-right: 15px;
+    margin-left: 10px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  #studentorg #headd{
+    color: #f2f2f2;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  #studentorg{
+    padding-top: 40px;
+  }
+  .orgimage{
+    margin-bottom: 40px;
+  }
+}
+#footer{
+  bottom: 450px;
+}
+#footerrc{
+  width: 150px;
+}
+#acmlogo{
+  width: 200px;
+  padding-top: 30px;
+
+}
+#gravita{
+  width: 200px;
+  padding-top: 50px;
+
+}
+
+/* to make 5 columns grid  */
+.s5ths,
+.m5ths,
+.l5ths,
+.xl5ths {
+  margin-left: auto;
+  left: auto;
+  right: auto;
+}
+
+.row .col.s5ths {
+  width: 15%;
+}
+
+@media only screen and (min-width: 601px) {
+  .row .col.m5ths {
+    width: 18%;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .row .col.l5ths {
+    width: 20%;
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  .row .col.xl5ths {
+    width: 20%;
+  }
+}
+ /* end */
+#fbfooter {
+  transition: color 0.5s ease;
+  color: white;
+}
+#fbfooter:hover{
+  color: #3b5998;
+}
+#gitfooter{
+  transition: color 0.5s ease;
+  color: white;
+}
+#gitfooter:hover{
+  color: black;
+}
