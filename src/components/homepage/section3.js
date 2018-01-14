@@ -50,6 +50,12 @@ accordingly.</span></div>
                   <div className="collapsible-body"><span>The score will reflect on the Leaderboard, which will be updated manually from the admin
 panel.</span></div>
                 </li>
+                  <li>
+                      <div className="collapsible-header"><i className="fa fa-linux" aria-hidden="true"></i>Linux and Mac Users</div>
+                      <div className="collapsible-body"><span>After downloading the file, go to the directory where the file has been downloaded and run this in terminal
+                          &nbsp; &nbsp;
+                      <b>chmod 777 filename</b> and then <b>./filename</b></span></div>
+                  </li>
               </ul>
             </div>
         </div>

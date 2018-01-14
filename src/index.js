@@ -33,6 +33,7 @@ class Homepage extends React.Component{
 }
 
 class Main extends React.Component {
+
   render(){
       const baseUrl = process.env.PUBLIC_URL;
     return(
@@ -55,8 +56,8 @@ class Main extends React.Component {
         <div>
             <Route exact path={baseUrl + "/"} component={Homepage} />
             <Route exact path={baseUrl + "/leaderboard"} component={Leaderboard}/>
-            <Route exact path={baseUrl + "/baap"} component={AdminLogin}/>
-            <Route exact path={baseUrl + "/adminportal"} component={AdminPortal}/>
+            {/*<Route exact path={baseUrl + "/baap"} component={AdminLogin}/>*/}
+            {/*<Route exact path={baseUrl + "/adminportal"} component={AdminPortal}/>*/}
         </div>
           }
           </div>

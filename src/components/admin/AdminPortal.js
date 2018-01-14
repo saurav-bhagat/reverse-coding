@@ -8,10 +8,10 @@ const TeamDetails = (props) => {
       <div className="team-details">
           <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, repudiandae?
-              {props.thisDetails.map((item)=>{
-                  return <a href={``} >
-                      <button className="btn">
-                          {item}
+              {props.thisDetails.map((item,index)=>{
+                  return <a href={`http://139.59.20.9:1337/question/download/?path=${item}`} >
+                      <button className="btn user-code-button">
+                          Q {props.quesKeys[index]}
                       </button>
                   </a>
               })}
@@ -25,31 +25,33 @@ class TeamName extends React.Component {
         super(props);
         this.handleTeamClick = this.handleTeamClick.bind(this);
         this.state = {
-            team1 : ['path1','path2'],
+            team1 : [ ],
+            keyarr: [],
             clickTrue : false
         }
     }
 
     handleTeamClick = () => {
-        console.log(this.props.teamName)
-        // axios.post('http://139.59.20.9:1337/team/marked', {
-        //     username: 'akshit',
-        //     password: '1516',
-        //     teamname: 'akshit'
-        // })
-        // .then((response) =>{
-        //     alert(response);
-        //      let person = response.data;
-                //let team1=[]
-        //     for (x in person) {
-        //         team1.push(person[x])
-               //     }
-                //this.setState({team1});
-            //
-            // })
-            // .catch(function (error) {
-            //     console.log(error);
-            // });
+
+        axios.post('http://139.59.20.9:1337/team/marked', {
+            username: 'akshit',
+            password: '1516',
+            teamname: this.props.teamName
+        })
+        .then((response) =>{
+            let person = response.data.data;
+            let team1=[];
+            let keyarr = [];
+            for (let x in person) {
+                    team1.push(person[x]);
+                    keyarr.push(x);
+                }
+                this.setState({team1,keyarr});
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
             if(this.state.clickTrue){
                 this.setState({
                     clickTrue: false
@@ -73,7 +75,7 @@ class TeamName extends React.Component {
                 </div>
                 <br />
                 {
-                   this.state.clickTrue && <TeamDetails thisDetails={this.state.team1} />
+                   this.state.clickTrue && <TeamDetails thisDetails={this.state.team1} quesKeys={this.state.keyarr} />
                 }
             </div>
         );

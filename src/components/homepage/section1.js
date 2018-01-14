@@ -53,10 +53,15 @@ class Section1 extends React.Component{
         this.setState({
             loginValue: "sign in"
         });
-        localStorage.setItem('token',response.data.token);
-      // this.props.history.push('/welcome');
-        window.location.reload();
+        if(response.data.token && response.data.token!=="undefined"){
+            localStorage.setItem('token', response.data.token);
+            window.location.reload();
+        }
+        else{
+            alert("Invalid Credentials");
+        }
 
+        // this.props.history.push('/welcome');
     })
     .catch(function (error) {
       console.log(error);
@@ -130,27 +135,27 @@ class Section1 extends React.Component{
               <div className="left">
                 <div className="cardsty card">
                   <form onSubmit={this.handleSubmit}>
-                    <h5 style={{color:'#0D47A1',textAlign:'center'}}>Login</h5>
-                    <div id="afterlogin">
-                     <div className="row">
-                       <div className="input-field col s12">
-                         <input id="username" type="text" className="validate" name="username" ref="username" required />
-                         <label htmlFor="username">Username</label>
-                       </div>
-                     </div>
-                     <div className="row">
-                       <div className="input-field col s12">
-                         <input id="password" type="password" className="validate" name="password" ref="password" required />
-                         <label htmlFor="password">Password</label>
-                       </div>
-                     </div>
-                   </div>
-                      <button type="submit" className="btn lo-btn z-index-5 center-align" style={submitbtn}>
-                          {this.state.loginValue}
-                      </button>
-                      {/*<h2 style={{color:'#0D47A1',textAlign:'center'}}>*/}
-                          {/*Welcome!<br /> <br /> Event will start at 10:00am*/}
-                      {/*</h2>*/}
+                    {/*<h5 style={{color:'#0D47A1',textAlign:'center'}}>Login</h5>*/}
+                    {/*<div id="afterlogin">*/}
+                     {/*<div className="row">*/}
+                       {/*<div className="input-field col s12">*/}
+                         {/*<input id="username" type="text" className="validate" name="username" ref="username" required />*/}
+                         {/*<label htmlFor="username">Username</label>*/}
+                       {/*</div>*/}
+                     {/*</div>*/}
+                     {/*<div className="row">*/}
+                       {/*<div className="input-field col s12">*/}
+                         {/*<input id="password" type="password" className="validate" name="password" ref="password" required />*/}
+                         {/*<label htmlFor="password">Password</label>*/}
+                       {/*</div>*/}
+                     {/*</div>*/}
+                   {/*</div>*/}
+                      {/*<button type="submit" className="btn lo-btn z-index-5 center-align" style={submitbtn}>*/}
+                          {/*{this.state.loginValue}*/}
+                      {/*</button>*/}
+                      <h2 style={{color:'#0D47A1',textAlign:'center'}}>
+                          Welcome!<br /> <br /> Real challenge will start at 10:00am
+                      </h2>
                    {/*<input className="btn waves-effect waves-light center-align" type="submit" value= name="action"*/}
                      {/*style={submitbtn} />*/}
 
