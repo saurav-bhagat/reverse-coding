@@ -43,7 +43,7 @@
 
 
 }
-@media screen and (min-width: 480px) {
+
   #imgandtextdiv{
     color: white;
   }
@@ -63,6 +63,7 @@
     width: 420px !important;
     margin: auto;
     border-radius: 4px;
+    min-height: 350px;
   }
   #afterlogin{
     padding-left: 20px;
@@ -73,7 +74,7 @@
     font-weight: bolder;
     text-align: center;
   }
-}
+
 #coding{
   background-color: #0D47A1;
   padding-left: 4px;

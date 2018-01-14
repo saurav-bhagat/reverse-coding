@@ -1,22 +1,44 @@
 import React from 'react';
-import Backgroundcomp from './section1';
 import './section2.css';
 import acmlogo from './../../images/acm-white1.png';
 import footerrc from './../../images/footerrc.png';
-import gravita from './../../images/gravita.png';
+import vitlogo from './../../images/vitlogo1.png';
+import codechef from './../../images/codechef.png';
+import tech from './../../images/tech2.png';
 
 class Section2 extends React.Component {
   render(){
     return(
       <div>
         <div className="section2">
-          <Studentorg />
+          <Sponsors />
+            <br />
           <Footer />
         </div>
       </div>
     );
   }
 }
+
+const Sponsors = () => {
+    return(
+        <div>
+            <div id="studentorg" className="center">
+                <span id="headd">SPONSORS</span>
+            </div>
+            <div className="sponsor-wrapper">
+                <div className="row">
+                    <div className="col s12 m6">
+                        <img src={codechef} className="codechef-logo" />
+                    </div>
+                    <div className="col s12 m6">
+                        <img src={tech} className="tech-logo" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+};
 
 class Footer extends React.Component {
   render(){
@@ -34,7 +56,7 @@ class Footer extends React.Component {
 
           </div>
           <div className="col m4 hide-on-med-and-down">
-            <img src={gravita} alt="gravita" id="gravita" className="right" />
+            <img src={vitlogo} alt="gravita" id="gravita" className="right" />
           </div>
 
           <div className="col s12 center show-on-small hide-on-med-and-up">
@@ -47,7 +69,7 @@ class Footer extends React.Component {
 
           </div>
           <div className="col s12 center-align">
-            <img src={gravita} alt="gravita" id="gravita" className="show-on-small hide-on-med-and-up"
+            <img src={vitlogo} alt="gravita" id="gravita" className="show-on-small hide-on-med-and-up"
               style={{marginLeft: 'auto',marginRight : 'auto'}} />
           </div>
 

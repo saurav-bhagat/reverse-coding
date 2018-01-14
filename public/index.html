@@ -1,23 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet">
-    <title>React -App</title>
-    <style type="text/css">
-      body{
-        margin:0;
-        overflow-x: hidden;
-        background-color: #1a1a1a;
-        /*font-family: 'Varela Round', sans-serif;*/
-        font-family: 'Roboto', sans-serif;
-      }
+     <!-- Initial meta tags -->
+        <meta charset="utf-8">
+        <meta name="Language" content="en" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0" />
+      <title>REVERSE CODING</title>
+      <!-- link tags -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+    <!-- All meta tags -->
+        <meta name="description" content="We are ACM International's official student chapter in VIT-Vellore promoting new and upcoming computing concepts within the student community." />
+        <meta name="keywords" content="ACM VIT, chapter, tech, technical, web designing, saurav bhagat akshit grover">
+        <meta name="author" content="ACM VIT, saurav Bhagat,akshit grover, sauravbhagat088@gmail.com, akshitgrover@acm.org">
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="ACM VIT" />
+        <meta property="og:url" content="rc.acmvit.in" />
+        <meta property="og:title" content="Revrse Coding | ACM VIT Student's chapter" />
+        <meta property="og:description" content="We are ACM International's official student chapter in VIT-Vellore promoting new and upcoming computing concepts within the student community." />
+        <meta property="og:image" content="http://rc.acmvit.in/acm-white1.png" />
+        <meta itemprop="name" content="ACM VIT" />
+        <meta itemprop="description" content="We are ACM International's official student chapter in VIT-Vellore promoting new and upcoming computing concepts within the student community." />
+        <meta itemprop="image" content="img/favicon.ico" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@acmvit" />
+        <meta name="twitter:title" content="ACM VIT Student's chapter" />
+        <meta name="twitter:description" content="We are ACM International's official student chapter in VIT-Vellore promoting new and upcoming computing concepts within the student community." />
+        <style type="text/css">
+        body{
+            margin:0;
+            overflow-x: hidden;
+            background-color: #1a1a1a;
+            font-family: 'Open Sans', sans-serif;
+        }
     </style>
   </head>
   <body>
@@ -42,6 +60,14 @@
             } // End if
           });
         });
+
+        $(document).ready(function(){
+            $('.collapsible').collapsible({
+                accordion : true
+            });
+
+        });
+
 
     </script>
   </body>

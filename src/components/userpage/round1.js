@@ -10,53 +10,34 @@ class Round1 extends React.Component{
     super(props);
     this.state = {
       questxt : ['Question 1','Question 2', 'Question 3','Question 4','Question 5','Question 6','Question 7','Question 8','Question 9','Question 10'],
+        exequestion: [],
+        jarquestion: []
     }
-    var x;
-    let start = (e) =>{
-        e.preventDefault();
-        console.log("inside start function");
-        this.refs.demo.innerHTML = "start clicked";
-        var hr = this.refs.hr.innerHTML;
-        var min = this.refs.min.innerHTML;
-        var sec = this.refs.sec.innerHTML;
-        var maxmin=60;
-        var maxsec=60;
-        x = setInterval(myFunc, 1000);
-        var myFunc= () => {
-            if(hr>=0 && min>=0 && sec>=0){
-                if(sec<=0){
-                    min = min-1;
-                    sec=59;
-                }
-                if(min<=0){
-                  hr=hr-1;
-                  min=59;
-                }
-                sec = sec-1;
-                this.refs.hr.innerHTML = hr;
-                this.refs.min.innerHTML = min;
-                this.refs.sec.innerHTML = sec;
-            }
-            else{
-                clearInterval(x);
-               }
-             }
-
-           }
-           let stop = (e) => {
-              e.preventDefault();
-              this.refs.demo.innerHTML = "stop clicked";
-              clearInterval(x);
-          }
 
   }
-    //start and stop function*/}
+  componentDidMount() {
+      axios.get("https://reverse-coding-acm.herokuapp.com/question/getquestion")
+          .then(res => {
+              console.log(res)
+                console.log(res.data.queroundoneexe);
+                  this.setState({
+                      exequestion : res.data.queroundoneexe
+                  })
+              for(let j=0;j<10;j++){
+                  this.state.jarquestion.push(res.data.queroundonejar[j+1]);
+              }
+              console.log("questions are" + this.state.exequestion);
+          })
 
+  }
 
   render(){
 
 
-    let questxt = this.state.questxt;
+    let questxt     = this.state.questxt;
+    let exequestion = this.state.exequestion;
+    let jarquestion = this.state.jarquestion;
+    console.log(this.state.exequestion);
     return(
 
       <div id="round1">
@@ -70,20 +51,13 @@ class Round1 extends React.Component{
               <div className="col m6 s12">
                 <h2 className="round1head">Round1</h2>
               </div>
-              <div className="col m6 hide-on-med-and-down">
-                  <p><span id="hr" ref="hr">3</span>: <span id="min" ref="min">00</span> : <span id="sec" ref="sec">00</span>
-                  <a onClick={this.start} className="playbtn btn-floating btn-large waves-effect waves-light" ><i className="material-icons">play_arrow</i></a>
-                  <a onClick={this.stop} className="pausebtn btn-floating btn-large waves-effect waves-light" ><i className="material-icons">pause</i></a>
-                  </p>
-                  <p ref="demo"></p>
-            </div>
             </div><br />
 
             <div id="questionmaindiv">
               <div className="quescontainer">
-                <ol>
-                  {questxt.map((txt,i)=> <Question key={i} questxt={txt} quesid={i+1} />)}
-                </ol>
+                <ul>
+                  {questxt.map((txt,i)=> <Question key={i} exe={exequestion[i+1]} jar={jarquestion[i+1]} questxt={txt} quesid={i+1} />)}
+                </ul>
               </div>
 
             </div>

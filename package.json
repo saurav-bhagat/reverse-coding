@@ -4,8 +4,11 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
+    "classnames": "^2.2.5",
     "connected-react-router": "^4.2.3",
+    "es6-promise": "^4.1.1",
     "history": "^4.7.2",
+    "isomorphic-fetch": "^2.2.1",
     "material-ui": "^0.19.1",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
@@ -18,12 +21,14 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "cd build;cp index.html 200.html;",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "npm run build&&gh-pages -d build"
   },
-  "homepage": "https://saurav-bhagat.github.io/reverse-coding",
   "devDependencies": {
     "gh-pages": "^1.0.0"
   }
 }
+
+

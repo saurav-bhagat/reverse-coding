@@ -1,0 +1,33 @@
+.adminForm, .put-score-form{
+    width: 30vw;
+    margin-right: auto;
+    margin-left: auto;
+    background: #fff;
+    padding:10px;
+    margin-top: 30px;
+}
+@media screen and (max-width: 700px) {
+    .adminForm, .put-score-form{
+        width: 80vw;
+    }
+}
+.adminHead {
+    color: #0d47a1;
+    text-align: center;
+}
+.adminportal-wrapper {
+
+}
+.team-details-wrapper{
+    width: 45%;
+    float: left;
+    color: #fff;
+    margin-left: 10px;
+}
+.team-details-wrapper:after{
+    clear: both;
+}
+.team-details {
+    background-color: #ffffff;
+    padding: 10px;
+}

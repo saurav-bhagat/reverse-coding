@@ -1,11 +1,8 @@
 import React from 'react';
 import './section1.css';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import  mainimage from './../../images/section1.png';
 import  mainlogo from './../../images/logo.gif';
-import desktop from './../../images/desktop.png';
 import dots from './../../images/dots.png';
-import section2png from './../../images/section2.png';
 import axios from 'axios';
 import line1 from './../../images/line1.png';
 import line2 from './../../images/line2.png';
@@ -17,14 +14,14 @@ import {
   Redirect,
   withRouter
 } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
 
 
 
 class Section1 extends React.Component{
   state={
-    reversed:[true,true,true,true,true,true,true]
-  }
+      reversed:[true,true,true,true,true,true,true],
+      loginValue : "sign in"
+  };
   constructor(props){
     super(props);
     let reverseLetter = (index) => {
@@ -35,32 +32,36 @@ class Section1 extends React.Component{
       setTimeout(()=>reverseLetter(index+1),1000);
     }
     setTimeout(()=>reverseLetter(0), 0);
-    console.log("Executed")
   }
   static contextTypes = {
       router: React.PropTypes.object.isRequired
     }
   handleSubmit=(e)=> {
     e.preventDefault();
-
+    this.setState({
+       loginValue: "signing in..."
+    });
     const formData = {};
     for (const field in this.refs) {
       formData[field] = this.refs[field].value;
     }
-    axios.post('https://reverse-coding-acm.herokuapp.com/team/login', {
+    axios.post('http://139.59.20.9:1337/team/login', {
       username: formData.username,
       password: formData.password
     })
     .then((response) =>{
-      console.log(response);
-      localStorage.setItem('token',response.data.token);
-      this.props.history.push('/round1');
+        this.setState({
+            loginValue: "sign in"
+        });
+        localStorage.setItem('token',response.data.token);
+      // this.props.history.push('/welcome');
+        window.location.reload();
 
     })
     .catch(function (error) {
       console.log(error);
+      alert("Enter valid username and password");
     });
-    console.log('-->', formData);
 
   }
   componentDidMount () {
@@ -99,9 +100,9 @@ class Section1 extends React.Component{
 
               </span> &nbsp;<span id="coding">CODING</span>
               <div className = "midText">
-                <p style={{fontSize:'18px',marginTop: '2px'}}><span>10,000 prize</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <span>2 Rounds</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <span>3 Hours</span>
+                <p style={{fontSize:'18px',marginTop: '2px'}}><span>3,000 prize</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <span>14 Hours</span>
                  </p>
               </div>
 
@@ -133,24 +134,30 @@ class Section1 extends React.Component{
                     <div id="afterlogin">
                      <div className="row">
                        <div className="input-field col s12">
-                         <input id="username" type="text" className="validate" name="username" ref="username" />
+                         <input id="username" type="text" className="validate" name="username" ref="username" required />
                          <label htmlFor="username">Username</label>
                        </div>
                      </div>
                      <div className="row">
                        <div className="input-field col s12">
-                         <input id="password" type="text" className="validate" name="password" ref="password" />
+                         <input id="password" type="password" className="validate" name="password" ref="password" required />
                          <label htmlFor="password">Password</label>
                        </div>
                      </div>
                    </div>
-                   <input className="btn waves-effect waves-light center-align" type="submit" value="Sign in" name="action"
-                     style={submitbtn} />
+                      <button type="submit" className="btn lo-btn z-index-5 center-align" style={submitbtn}>
+                          {this.state.loginValue}
+                      </button>
+                      {/*<h2 style={{color:'#0D47A1',textAlign:'center'}}>*/}
+                          {/*Welcome!<br /> <br /> Event will start at 10:00am*/}
+                      {/*</h2>*/}
+                   {/*<input className="btn waves-effect waves-light center-align" type="submit" value= name="action"*/}
+                     {/*style={submitbtn} />*/}
 
                  </form>
                 </div>
               </div>
-              <a className="downbtn btn-floating btn-large waves-effect waves-light z-depth-5" href="#section3"><i className="material-icons">keyboard_arrow_down</i></a>
+              <a className="hide-on-small-only downbtn btn-floating btn-large waves-effect waves-light z-depth-5" href="#section3"><i className="material-icons">keyboard_arrow_down</i></a>
             </div>{/*col s8 end*/}
           </div> {/*row div end*/}
 

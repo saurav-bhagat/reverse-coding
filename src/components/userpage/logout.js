@@ -11,6 +11,7 @@ class Logout extends React.Component{
   }
   componentWillMount() {
     localStorage.removeItem('token');
+      window.location.reload();
     this.props.history.push('/');
   }
   render(){

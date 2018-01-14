@@ -48,7 +48,7 @@ class Cons extends React.Component {
     super(props);
     this.state = {
         tt : new Date().toUTCString()
-    }
+    };
     // this.update = this.update.bind(this);
     setTimeout(this.update.bind(this), 1000);
   }
@@ -56,7 +56,7 @@ class Cons extends React.Component {
     this.setState = {
       tt : new Date().toUTCString()
     }
-  }
+  };
 
   render(){
     return(
@@ -67,5 +67,5 @@ class Cons extends React.Component {
 
 App.defaultProps = {
   txt : "This is the default text!!!"
-}
+};
 export default App;

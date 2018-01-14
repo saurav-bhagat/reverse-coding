@@ -10,7 +10,6 @@
   padding: 12px;
 }
 
-@media screen and (min-width: 480px){
   #footer{
     bottom: 450px;
   }
@@ -35,7 +34,7 @@
   }
   #studentorg #headd{
     color: #f2f2f2;
-    font-size: 28px;
+    font-size: 38px;
     font-weight: bold;
   }
   #studentorg{
@@ -44,7 +43,6 @@
   .orgimage{
     margin-bottom: 40px;
   }
-}
 #footer{
   bottom: 450px;
 }
@@ -107,4 +105,15 @@
 }
 #gitfooter:hover{
   color: black;
+}
+.codechef-logo{
+    width:200px;
+    position: relative;
+    top:20px;
+}
+.tech-logo{
+    width: 220px;
+}
+.sponsor-wrapper{
+    text-align: center;
 }

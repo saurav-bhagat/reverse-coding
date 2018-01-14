@@ -1,0 +1,56 @@
+.tb-container {
+
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+table{
+    color: #fff;
+    border-collapse: collapse;
+}
+table th {
+    background-color: #0d47a1;
+    color: #fff;
+    font-size: 2rem;
+}
+table td, table th {
+    border: 3px solid #ddd;
+    text-align: center;
+}
+table tr td{
+    background: #fff;
+    color: #0d47a1;
+    font-size: 1.2rem;
+}
+td:nth-of-type(1) {
+    padding-right: 10px;
+}
+.ch-link {
+    transition: all 0.3s ease-in;
+    background-color: #1e88e5;
+}
+.fa-arrow-left{
+    opacity: 0;
+}
+
+.ch-link a{
+    color: #fff;
+    font-size: 1.2rem;
+}
+.ld-nav{
+    float: right;
+    position: relative;
+    top: 20px;
+}
+.ld-nav-l{
+    transition: all 0.3s ease-in;
+    background-color: #1e88e5;
+    margin-left: 18px;
+}
+.ld-nav-c{
+    transition: all 0.3s ease-in;
+    background-color: #1e88e5;
+
+}
+

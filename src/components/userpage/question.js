@@ -2,6 +2,8 @@ import React from 'react';
 import './round1.css';
 import axios from 'axios';
 import FormData from 'form-data';
+import classNames from 'classnames';
+
 
 
 class Question extends React.Component{
@@ -10,22 +12,40 @@ class Question extends React.Component{
     this.state = {
         file : '',
         fileSubmitDisabled:true,
+        showit: true,
+        isPressed : false,
+        uploadText: 'upload'
     }
+
   }
+    showexeandjar = () => {
+        this.setState({showit:false,isPressed:true})
+    };
+    handlefileChange = (event) =>{
+        let name 	= event.target.value;
+        name 		= name.split(".");
+        let extension 	= name.pop();
+        if(extension == 'cpp' || extension == 'py' || extension == 'java' || extension == 'c')
+        {
+            this.setState({file: event.target.files[0],fileSubmitDisabled:false});
+        }
+        else{
 
-  handlefileChange = (event) =>{
-    this.setState({file: event.target.files[0],fileSubmitDisabled:false});
-  }
-  handleSubmit = (quesid) =>{
+            alert("wrong file type");
+            this.setState({fileSubmitDisabled:true});
+        }
 
-    const formData = new FormData();
-    formData.append('que', 1);
-    formData.append('round','one');
-    formData.append('file',this.state.file);
-    {/*formData.append('token',localStorage.getItem('token'));*/}
-    console.log(localStorage.getItem('token'));
 
-    axios.post('https://reverse-coding-acm.herokuapp.com/question/upload',
+    };
+    handleSubmit = (quesid) =>{
+        this.setState({uploadText: 'uploading...'});
+        const formData = new FormData();
+        formData.append('que', this.props.quesid);
+        // formData.append('round','one');
+        formData.append('upload',this.state.file);
+        {/*formData.append('token',localStorage.getItem('token'));*/}
+
+        axios.post('http://139.59.20.9:1337/question/upload',
           formData,{
             headers: {
               'Authorization' : 'Bearer '+localStorage.getItem('token')
@@ -33,52 +53,64 @@ class Question extends React.Component{
           }
         ).then((response)=> {
           console.log(response);
+          alert('aya');
+          this.setState({uploadText: 'upload'});
         })
         .catch((err)=> {
           console.log(err);
           console.log(formData);
         })
 
-  }
-  downloadexe = ()=> {
+  };
 
-  }
-  downloadjar = () => {
-
-  }
 
   render(){
+      const hamburgerButton=classNames({
+          "is-active":this.state.showit,
+          "exe-and-jar-div": this.state.isPressed
+      });
+      console.log(`key is ${this.props.quesid} and corresponding question is ${this.props.exe}`);
     return(
-        <div>
-          <p style={{fontSize:'21px',fontWeight: 'bold'}}>{this.props.questxt}</p>
-           <div className="row">
-               <div className="col l6 m12 s12 questionfiles">
-                 <button className="btn waves downloadbtn" style={{color: '',display: '-webkit-box'}}>Download</button>
-                  <button className="btn waves exnja" onClick={this.downloadexe}>.exe</button>&nbsp;
-                  <button className="btn waves exnja" onClick={this.downloadjar}>.jar</button>
+        <li>
+            <div className="collapsible-header" style={{fontSize:'21px',fontWeight: 'bold'}}><i className="material-icons">add</i>{this.props.questxt}</div>
+            <div className="collapsible-body">
+                <div className="row">
+                    <div className="col l6 m12 s12 questionfiles">
+                        <div style={{textAlign:'center'}} >
+                            <button className="btn waves downloadbtn" style={{color: '',display: '-webkit-box'}} onClick={this.showexeandjar}>Download</button>
+                        </div>
 
-               </div>
-               <div className="col l6 m7 s12">
-                 <div className="row">
-                   <div className="file-field input-field col s8">
-                     <div className="btn">
-                       <span>File</span>
-                       <input type="file" onChange={this.handlefileChange} />
-                     </div>
-                     <div className="file-path-wrapper">
-                       <input className="file-path validate" type="text" />
-                     </div>
-                   </div>
-                   <div className="col s4">
-                     <button disabled={true} className={this.state.fileSubmitDisabled?"disabled":""} id="uploadbtn" onClick={this.handleSubmit}>Upload</button>
-                   </div>
-                 </div>
-               </div>
-             </div>
-          </div>
+                             <div className={hamburgerButton}>
+                                 <br />
+                                <a className="btn waves exnja" href={this.props.exe} download>win</a>&nbsp;
+                                <a className="btn waves exnja" href={this.props.jar} download>mac</a>&nbsp;
+                                 <a className="btn waves exnja" href={this.props.linux} download>linux</a>
+                            </div>
+
+                    </div>
+                    <div className="col l6 m7 s12 upload-div-wrapper">
+                        <div className="row">
+                            <div className="file-field input-field col s8">
+                                <div className="btn">
+                                    <span>File</span>
+                                    <input type="file" onChange={this.handlefileChange} />
+                                </div>
+                                <div className="file-path-wrapper">
+                                    <input className="file-path validate" type="text" />
+                                </div>
+                            </div>
+                            <div className="col s4">
+                                <button className={this.state.fileSubmitDisabled?"disabled":""} id="uploadbtn" onClick={this.handleSubmit}>{this.state.uploadText}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
     );
   }
 }
 {/* now here all individual question details are avaialable in props
   we have to just upload the question using that details  */}
+
 export default Question;

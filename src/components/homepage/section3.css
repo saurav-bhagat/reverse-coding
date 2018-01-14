@@ -29,3 +29,7 @@
 ul{
   margin-bottom: 0px!important ;
 }
+.collapsible-header{
+    font-size: large;
+    font-weight: bold;
+}
