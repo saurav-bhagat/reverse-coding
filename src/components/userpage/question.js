@@ -14,7 +14,8 @@ class Question extends React.Component{
         fileSubmitDisabled:true,
         showit: true,
         isPressed : false,
-        uploadText: 'upload'
+        uploadText: 'upload',
+        ifUploaded : ''
     }
 
   }
@@ -27,7 +28,7 @@ class Question extends React.Component{
         let extension 	= name.pop();
         if(extension == 'cpp' || extension == 'py' || extension == 'java' || extension == 'c')
         {
-            this.setState({file: event.target.files[0],fileSubmitDisabled:false});
+            this.setState({file: event.target.files[0],fileSubmitDisabled:true});
         }
         else{
 
@@ -38,28 +39,35 @@ class Question extends React.Component{
 
     };
     handleSubmit = (quesid) =>{
-        this.setState({uploadText: 'uploading...'});
-        const formData = new FormData();
-        formData.append('que', this.props.quesid);
-        // formData.append('round','one');
-        formData.append('upload',this.state.file);
-        {/*formData.append('token',localStorage.getItem('token'));*/}
+        if(!this.state.fileSubmitDisabled){
+            this.setState({uploadText: 'uploading...'});
+            const formData = new FormData();
+            formData.append('que', this.props.quesid);
+            // formData.append('round','one');
+            formData.append('upload',this.state.file);
+            {/*formData.append('token',localStorage.getItem('token'));*/}
 
-        axios.post('http://139.59.20.9:1337/question/upload',
-          formData,{
-            headers: {
-              'Authorization' : 'Bearer '+localStorage.getItem('token')
-            }
-          }
-        ).then((response)=> {
-          console.log(response);
-          alert('aya');
-          this.setState({uploadText: 'upload'});
-        })
-        .catch((err)=> {
-          console.log(err);
-          console.log(formData);
-        })
+            axios.post('http://139.59.20.9:1337/question/upload',
+                formData,{
+                    headers: {
+                        'Authorization' : 'Bearer '+localStorage.getItem('token')
+                    }
+                }
+            ).then((response)=> {
+                console.log(response);
+                this.setState({uploadText: 'upload'});
+                //make event.target.value=""
+                this.refs.fileInput.value="";
+                this.setState({ifUploaded: 'uploaded'})
+            })
+                .catch((err)=> {
+                    console.log(err);
+                    console.log(formData);
+                })
+        }
+        else{
+            alert("Select file first");
+        }
 
   };
 
@@ -96,13 +104,14 @@ class Question extends React.Component{
                                     <input type="file" onChange={this.handlefileChange} />
                                 </div>
                                 <div className="file-path-wrapper">
-                                    <input className="file-path validate" type="text" />
+                                    <input className="file-path validate" type="text" required />
                                 </div>
                             </div>
                             <div className="col s4">
                                 <button className={this.state.fileSubmitDisabled?"disabled":""} id="uploadbtn" onClick={this.handleSubmit}>{this.state.uploadText}</button>
                             </div>
                         </div>
+                        <span style={{position:'relative',bottom:'20px',float:'right',right:'80px'}}>{this.state.ifUploaded}</span>
                     </div>
                 </div>
             </div>

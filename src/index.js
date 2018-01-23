@@ -42,7 +42,6 @@ class Main extends React.Component {
               {localStorage.getItem('token') &&
               <Switch>
 
-
                   <Route exact path={baseUrl + "/faq"} component={Faq}/>
                   <Route exact path={baseUrl + "/round1"} component={Round1}/>
                   <Route exact path='/round2' component={Round2}/>

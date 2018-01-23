@@ -34,3 +34,12 @@
 .user-code-button{
     margin-right: 10px;
 }
+.md-wrapper {
+    width: 70vw;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    text-align: center;
+}

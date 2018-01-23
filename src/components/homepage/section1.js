@@ -134,7 +134,8 @@ class Section1 extends React.Component{
             <div className="col m8">
               <div className="left">
                 <div className="cardsty card">
-                  <form onSubmit={this.handleSubmit}>
+                  <form >
+                      {/*onSubmit={this.handleSubmit}*/}
                     {/*<h5 style={{color:'#0D47A1',textAlign:'center'}}>Login</h5>*/}
                     {/*<div id="afterlogin">*/}
                      {/*<div className="row">*/}
@@ -151,13 +152,16 @@ class Section1 extends React.Component{
                      {/*</div>*/}
                    {/*</div>*/}
                       {/*<button type="submit" className="btn lo-btn z-index-5 center-align" style={submitbtn}>*/}
-                          {/*{this.state.loginValue}*/}
-                      {/*</button>*/}
-                      <h2 style={{color:'#0D47A1',textAlign:'center'}}>
-                          Welcome!<br /> <br /> Real challenge will start at 10:00am
-                      </h2>
-                   {/*<input className="btn waves-effect waves-light center-align" type="submit" value= name="action"*/}
-                     {/*style={submitbtn} />*/}
+                      {/*  {this.state.loginValue}*/}
+                      {/* </button> */}
+                      <h3 style={{textAlign:'center'}}>Thanks! :)</h3>
+                       <h5 style={{color:'#0D47A1',textAlign:'center'}}>
+                          Feedback form Link : &nbsp; &nbsp;<br />
+                          <b><a style={{textDecoration:'underline'}}  target="_blank" href="https://goo.gl/forms/qe2fEvcJRNh1BlRv2">Form Link</a></b>
+                          <br />Filling the form is compulsory to avail the certificates.
+                      </h5>
+                      {/*<input className="btn waves-effect waves-light center-align" type="submit" value= name="action"*/}
+                      {/*style={submitbtn} />*/}
 
                  </form>
                 </div>

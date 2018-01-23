@@ -12,11 +12,11 @@ const Topbox = (props) => {
             {
                 localStorage.getItem('token') &&
                     <div className="ld-nav">
-                        <NavLink to="/welcome">
+                        <a href="/welcome">
                             <div className="btn ld-nav-c z-index-5 " style={{textAlign:'center'}}>
                                 Challenges
                             </div>
-                        </NavLink>
+                        </a>
                         <NavLink to="/logout" >
                             <button className="btn ld-nav-l z-index-5">
                                 Logout
@@ -34,7 +34,7 @@ const Topbox = (props) => {
 const TeamRow = (props) => {
   return(
       <tr>
-          <td>{props.index+1}</td>
+          {/*<td>{props.index+1}</td>*/}
           <td>{props.data.teamname}</td>
           <td>{props.data.score}</td>
 
@@ -54,7 +54,6 @@ class Leaderboard extends React.Component {
         axios.get("http://139.59.20.9:1337/team/getscore")
             .then(res => {
 
-                console.log(res.data.data[0]);
                 for(let i=0; i< res.data.data.length ;i++)
                 {
                     this.state.ledetails.push(res.data.data[i]);
@@ -71,6 +70,7 @@ class Leaderboard extends React.Component {
             <div>
                 <Topbox />
                 <br />
+
                 <div className="tb-container">
                     <div>
                         <i className="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;
@@ -88,7 +88,7 @@ class Leaderboard extends React.Component {
                     <table className="bordered">
                         <thead>
                         <tr>
-                            <th>Rank</th>
+                            {/*<th>Rank</th>*/}
                             <th>Team Name</th>
                             <th>Score</th>
                         </tr>
